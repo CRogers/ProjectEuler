@@ -3,7 +3,7 @@ package projecteuler
 import scala.collection.mutable._
 import scala.math.BigInt
 
-object Q29 {
+object P029 {
 	
 	def solve(a: Int, b: Int) = {
 		
