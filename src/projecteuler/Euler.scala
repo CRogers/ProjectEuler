@@ -11,7 +11,7 @@ object Euler {
 		var a = 10
 		
 		while(n > 0) {
-			list.append(n % 10)
+			list.prepend(n % 10)
 			n /= 10
 		}
 		
@@ -43,5 +43,7 @@ object Euler {
 			result *= i
 		result
 	}
+	
+	def rotations[T](list: List[T]): Seq[List[T]] = for (i <- 1 to list.size) yield list.drop(i) ++ list.take(i)
 	
 }
