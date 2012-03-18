@@ -16,20 +16,12 @@ object P035 {
 		
 		var i = 0
 		while(primes(i) < 1e6.toInt) {
-			
-			var circular = true
 				
-			if(i % 10000 == 0)
-				println("%d\t%d" format (primes(i), circularPrimes.size))
-			
 			val digits = Euler.getDigits(primes(i))
-			for(permutation <- digits.permutations) {
-				val num = Euler.makeInt(permutation)
-				if(!primesHash.contains(num))
-					circular = false
-			}
+			val rots = Euler.rotations(digits).map(Euler.makeInt(_))
+			val allPrime = rots.foldLeft(true)((res, a) => res && primesHash.contains(a))
 			
-			if(circular) {
+			if(allPrime) {
 				circularPrimes.append(primes(i))
 				println(primes(i))
 			}
@@ -38,5 +30,6 @@ object P035 {
 		}
 		
 		println(circularPrimes.toList)	
+		println(circularPrimes.size)	
 	}
 }
