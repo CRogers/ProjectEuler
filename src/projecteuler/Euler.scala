@@ -37,4 +37,11 @@ object Euler {
 	
 	def makeInt(list: List[Int]): Int = list.foldLeft(0)((acc, i) => acc*10 + i)
 	
+	def factorial(n: Int): Int = {
+		var result = 1
+		for(i <- 2 to n)
+			result *= i
+		result
+	}
+	
 }
